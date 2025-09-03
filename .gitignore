@@ -49,3 +49,5 @@ app/Repositories/CrudGeneratorRepository.php
 app/Services/CrudGeneratorService.php
 database/factories/CrudGeneratorFactory.php
 database/seeders/CrudGeneratorSeeder.php
+tests/Feature/CrudGeneratorTest.php
+tests/Unit/CrudGeneratorTest.php
