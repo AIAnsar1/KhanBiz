@@ -11,6 +11,7 @@ use App\Http\Controllers\{
     CompaniesController,
     CategoryController,
     TendersController,
+    TenderBidsController,
 };
 
 
@@ -36,6 +37,7 @@ Route::prefix('/application')->group( function (): void {
     // Route::apiResource('/companies', CompaniesController::class);
     // Route::apiResource('/categories', CategoryController::class);
     // Route::apiResource('/tenders', TendersController::class);
+    // Route::apiResource('/tender-bids', TenderBidsController::class);
 
     Route::get('/companies', [CompaniesController::class, 'index']);
     Route::post('/companies', [CompaniesController::class, 'store']);
@@ -54,6 +56,12 @@ Route::prefix('/application')->group( function (): void {
     Route::get('/tenders/{tender}', [TendersController::class, 'show']);
     Route::put('/tenders/{tender}', [TendersController::class, 'update']);
     Route::delete('/tenders/{tender}', [TendersController::class, 'destroy']);
+
+    Route::get('/tender-bids', [TenderBidsController::class, 'index']);
+    Route::post('/tender-bids', [TenderBidsController::class, 'store']);
+    Route::get('/tender-bids/{tenderBid}', [TenderBidsController::class, 'show']);
+    Route::put('/tender-bids/{tenderBid}', [TenderBidsController::class, 'update']);
+    Route::delete('/tender-bids/{tenderBid}', [TenderBidsController::class, 'destroy']);
 
     
 

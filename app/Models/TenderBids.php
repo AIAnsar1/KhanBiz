@@ -3,7 +3,7 @@
 namespace App\Models;
 
 
-class Companies extends BaseModel
+class TenderBids extends BaseModel
 {
     /**
      * The attributes that are mass assignable.
@@ -11,15 +11,12 @@ class Companies extends BaseModel
      * @var array<int, string>
      */
     protected $fillable = [
-        'legal_name',
-        'brand_name',
-        'tin',
-        'country_code',
-        'city',
-        'address',
-        'website',
-        'verified_at',
-        'about',
+        'amount',
+        'currency',
+        'message',
+        'status',
+        'tender_id',
+        'supplier_company_id',
     ];
     
     /**
@@ -37,21 +34,20 @@ class Companies extends BaseModel
      * @return array<string, string>
      */
     protected $casts = [
-        'about' => 'array',
-        'verified_at' => 'datetime',
+
     ];
     
     public $translatable = [
 
     ];
 
-    public function tenders()
+    public function tender()
     {
-        return $this->hasMany(Tenders::class);
+        return $this->belongsTo(Tenders::class);
     }
 
-    public function tenderBids()
-{
-    return $this->hasMany(TenderBids::class, 'supplier_company_id');
-}
+    public function supplierCompany()
+    {
+        return $this->belongsTo(Companies::class, 'supplier_company_id');
+    }
 }

@@ -65,4 +65,9 @@ class Tenders extends BaseModel
     {
         return $this->belongsTo(Locations::class);
     }
+
+    public function bids()
+{
+    return $this->hasMany(TenderBids::class);
+}
 }
