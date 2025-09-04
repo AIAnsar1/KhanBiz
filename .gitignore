@@ -51,3 +51,5 @@ database/factories/CrudGeneratorFactory.php
 database/seeders/CrudGeneratorSeeder.php
 tests/Feature/CrudGeneratorTest.php
 tests/Unit/CrudGeneratorTest.php
+tests/Unit/CrudGeneratorRepositoryTest.php
+tests/Unit/CrudGeneratorServiceTest.php

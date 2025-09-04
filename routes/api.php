@@ -10,6 +10,7 @@ use App\Http\Controllers\{
     UserController,
     CompaniesController,
     CategoryController,
+    TendersController,
 };
 
 
@@ -33,7 +34,8 @@ Route::post('/check-email-verification', [EmailVerificationController::class, 'c
 
 Route::prefix('/application')->group( function (): void {
     // Route::apiResource('/companies', CompaniesController::class);
-    // Route::apiResource('/categories', CompaniesController::class);
+    // Route::apiResource('/categories', CategoryController::class);
+    // Route::apiResource('/tenders', TendersController::class);
 
     Route::get('/companies', [CompaniesController::class, 'index']);
     Route::post('/companies', [CompaniesController::class, 'store']);
@@ -46,6 +48,12 @@ Route::prefix('/application')->group( function (): void {
     Route::get('/categories/{category}', [CategoryController::class, 'show']);
     Route::put('/categories/{category}', [CategoryController::class, 'update']);
     Route::delete('/categories/{category}', [CategoryController::class, 'destroy']);
+
+    Route::get('/tenders', [TendersController::class, 'index']);
+    Route::post('/tenders', [TendersController::class, 'store']);
+    Route::get('/tenders/{tender}', [TendersController::class, 'show']);
+    Route::put('/tenders/{tender}', [TendersController::class, 'update']);
+    Route::delete('/tenders/{tender}', [TendersController::class, 'destroy']);
 
     
 

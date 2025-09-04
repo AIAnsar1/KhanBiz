@@ -44,4 +44,9 @@ class Companies extends BaseModel
     public $translatable = [
 
     ];
+
+    public function tenders()
+    {
+        return $this->hasMany(Tenders::class);
+    }
 }
