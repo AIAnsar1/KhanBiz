@@ -9,6 +9,7 @@ use App\Http\Controllers\{
     EmailVerificationController,
     UserController,
     CompaniesController,
+    CategoryController,
 };
 
 
@@ -32,12 +33,21 @@ Route::post('/check-email-verification', [EmailVerificationController::class, 'c
 
 Route::prefix('/application')->group( function (): void {
     // Route::apiResource('/companies', CompaniesController::class);
+    // Route::apiResource('/categories', CompaniesController::class);
 
     Route::get('/companies', [CompaniesController::class, 'index']);
     Route::post('/companies', [CompaniesController::class, 'store']);
     Route::get('/companies/{company}', [CompaniesController::class, 'show']);
     Route::put('/companies/{company}', [CompaniesController::class, 'update']);
     Route::delete('/companies/{company}', [CompaniesController::class, 'destroy']);
+
+    Route::get('/categories', [CategoryController::class, 'index']);
+    Route::post('/categories', [CategoryController::class, 'store']);
+    Route::get('/categories/{category}', [CategoryController::class, 'show']);
+    Route::put('/categories/{category}', [CategoryController::class, 'update']);
+    Route::delete('/categories/{category}', [CategoryController::class, 'destroy']);
+
+
 })->middleware(['auth:api', RBAC::class]);
 
 Route::apiResource('/application/users', UserController::class);
