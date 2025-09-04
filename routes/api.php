@@ -47,6 +47,7 @@ Route::prefix('/application')->group( function (): void {
     Route::put('/categories/{category}', [CategoryController::class, 'update']);
     Route::delete('/categories/{category}', [CategoryController::class, 'destroy']);
 
+    
 
 })->middleware(['auth:api', RBAC::class]);
 
