@@ -54,4 +54,9 @@ class Category extends BaseModel
             ]
         ];
     }
+
+    public function tenders()
+    {
+        return $this->hasMany(Tenders::class);
+    }
 }
