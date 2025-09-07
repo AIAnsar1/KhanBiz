@@ -25,7 +25,7 @@ class PlanResource extends JsonResource
             'bid_limit' => $this->bid_limit,
             'features'  => $this->features,
             'active'    => $this->active,
-            'subscriptions' => SubscriptionResource::collection($this->whenLoaded('subscriptions')),
+            'subscriptions' => SubScriptionResource::collection($this->whenLoaded('subscriptions')),
         ];
     }
 }
