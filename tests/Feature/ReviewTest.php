@@ -51,7 +51,7 @@ class ReviewTest extends TestCase
         ]);
 
         $payload = [
-            'rating'          => 4,
+            'rating'          => 2,
             'comment'         => 'Updated review',
             'from_company_id' => $review->from_company_id,
             'to_company_id'   => $review->to_company_id,
@@ -63,7 +63,7 @@ class ReviewTest extends TestCase
 
         $this->assertDatabaseHas('reviews', [
             'id'      => $review->id,
-            'rating'  => 4,
+            'rating'  => 2,
             'comment' => 'Updated review',
         ]);
     }

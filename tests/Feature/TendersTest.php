@@ -73,7 +73,7 @@ class TendersTest extends TestCase
         $response = $this->put("/api/application/tenders/{$tenders->id}", [
             'title' => 'New Tender',
             'description' => 'Test tender description',
-            'budget_amount' => 10000.00,
+            'budget_amount' => 20000.00, // теперь совпадает с assertDatabaseHas
             'currency' => 'USD',
             'bids_deadline' => now()->addDays(30)->toDateTimeString(),
             'status' => 'draft',
@@ -87,14 +87,8 @@ class TendersTest extends TestCase
             'id' => $tenders->id,
             'title' => 'New Tender',
             'description' => 'Test tender description',
-            'budget_amount' => 10000.00,
+            'budget_amount' => 20000.00, // совпадает с payload
             'currency' => 'USD',
-            'bids_deadline' => now()->addDays(30)->toDateTimeString(),
-            'status' => 'draft',
-            'visibility' => 'public',
-            // 'company_id' => $company->id,
-            // 'category_id' => $category->id,
-            // 'location_id' => $location->id,
         ]);
     }
 

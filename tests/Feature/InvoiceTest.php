@@ -75,7 +75,7 @@ class InvoiceTest extends TestCase
             'id'       => $invoice->id,
             'amount'   => 299.50,
             'currency' => 'EUR',
-            'status'   => 'failed', // вместо 'paid'
+            'status'   => 'paid',
             'provider' => 'Stripe',
             'provider_invoice_id' => 'inv_123456',
         ]);

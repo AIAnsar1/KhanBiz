@@ -25,7 +25,7 @@ class SubScriptionTest extends TestCase
             'starts_at'      => now(),
             'ends_at'        => now()->addMonth(),
             'remaining_bids' => 10,
-            'status'         => 'active',
+            'status'         => 'expired',
             'company_id'     => $company->id,
             'plan_id'        => $plan->id,
         ];
@@ -37,7 +37,7 @@ class SubScriptionTest extends TestCase
             'company_id'     => $company->id,
             'plan_id'        => $plan->id,
             'remaining_bids' => 10,
-            'status'         => 'active',
+            'status'         => 'expired',
         ]);
     }
 
@@ -58,7 +58,7 @@ class SubScriptionTest extends TestCase
             'starts_at'      => now(),
             'ends_at'        => now()->addMonths(2),
             'remaining_bids' => 20,
-            'status'         => 'expired',
+            'status'         => 'cancelled',
             'company_id'     => $subscription->company_id,
             'plan_id'        => $subscription->plan_id,
         ];
@@ -69,7 +69,7 @@ class SubScriptionTest extends TestCase
         $this->assertDatabaseHas('sub_scriptions', [
             'id'             => $subscription->id,
             'remaining_bids' => 20,
-            'status'         => 'expired',
+            'status'         => 'cancelled',
         ]);
     }
 

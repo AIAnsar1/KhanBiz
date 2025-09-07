@@ -26,7 +26,7 @@ class UpdatePaymentRequest extends FormRequest
             'amount' => ['required', 'numeric', 'min:0'],
             'currency' => ['required', 'string', 'size:3'],
             'status' => ['required', 'in:succeeded,failed,refunded'],
-            'provider' => ['required', 'string', 'max:64'],
+            'provider' => ['required', 'string'],
             'provider_payment_id' => ['required', 'string', 'max:128'],
         ];
     }

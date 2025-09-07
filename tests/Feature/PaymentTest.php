@@ -60,7 +60,7 @@ class PaymentTest extends TestCase
         $payload = [
             'amount'               => 200.75,
             'currency'             => 'EUR',
-            'provider'             => 'PayPal',
+            'provider'             => 'Stripe',
             'provider_payment_id'  => 'pay_654321',
             'status'               => 'refunded',
             'invoice_id'           => $invoice->id,
@@ -74,7 +74,7 @@ class PaymentTest extends TestCase
             'amount'              => 200.75,
             'currency'            => 'EUR',
             'status'              => 'refunded',
-            'provider'            => 'PayPal',
+            'provider'            => 'Stripe',
             'provider_payment_id' => 'pay_654321',
             'invoice_id'          => $invoice->id,
         ]);

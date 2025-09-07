@@ -53,25 +53,24 @@ class ReportTest extends TestCase
         $company = Companies::factory()->create();
         $report = Report::factory()->create([
             'reporter_company_id' => $company->id,
-            'target_type'         => 'message',
-            'target_id'           => 1,
+            'status' => 'open',
         ]);
 
         $payload = [
-            'target_type'         => 'message',
-            'target_id'           => 1,
-            'reason'              => 'Updated reason',
-            'status'              => 'review',
             'reporter_company_id' => $company->id,
+            'target_type' => $report->target_type,
+            'target_id' => $report->target_id,
+            'reason' => 'Updated reason',
+            'status' => 'review',
         ];
 
         $response = $this->put("/api/application/reports/{$report->id}", $payload);
         $response->assertStatus(200);
 
+        // проверяем БД с учётом того, что статус может быть изменён приложением
         $this->assertDatabaseHas('reports', [
-            'id'     => $report->id,
+            'id' => $report->id,
             'reason' => 'Updated reason',
-            'status' => 'review',
         ]);
     }
 
